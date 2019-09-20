@@ -24,7 +24,7 @@ Complex::Complex(const Complex& z)
 double Complex::real() const {return _real;}
 double Complex::imag() const {return _imag;}
 
-//Asssignment
+//Assignment
 Complex& Complex::operator=(double r)
 {
 	_real = r;
@@ -57,7 +57,7 @@ Complex& Complex::operator-=(const Complex& z)
 	return *this;
 }
 
-//Math Operators
+
 Complex& Complex::operator*=(const Complex& z)
 {
 	_real *= z._real;
@@ -73,6 +73,7 @@ Complex& Complex::operator/=(const Complex& z)
 	return *this;
 }
 
+//Math Operators
 Complex operator+(const Complex& a, const Complex& b) 
 {
 	double addReal = (a.real() + b.real()); //(a + c)
@@ -105,11 +106,11 @@ Complex operator*(const Complex& a, const Complex& b) //(a + bi)*(c + di)
 
 Complex operator/(const Complex& a, const Complex& b) //(a + bi)/(c + di) * (c - di)/(c - di)
 {
-	double topReal = ((a.real() * b.real()) + (a.imag() * (b.imag() * -1) * -1)); //(a * c) + (-1 * (bi * di *-1)
-	double topImag = ((a.real() * b.imag()* -1) + (a.imag() * b.real())); //(a * di * -1) + (bi * c)
-	double botReal = ((b.real() * b.real()) + (b.real() * (b.imag() * -1) * -1)); //(c * c) + (di *di * -1)
+	double topReal = ((a.real() * b.real()) + (a.imag() * (b.imag() * -1) * -1)); //z = (a * c) + (-1 * (bi * di *-1)
+	double topImag = ((a.real() * b.imag()* -1) + (a.imag() * b.real())); //wi = (a * di * -1) + (bi * c)
+	double botReal = ((b.real() * b.real()) + (b.real() * (b.imag() * -1) * -1)); //y = (c * c) + (di *di * -1)
 	
-	Complex res ((topReal/botReal),(topImag/botReal));
+	Complex res ((topReal/botReal),(topImag/botReal)); //(z/y), (wi/y)
 
 	return res;
 }
@@ -127,10 +128,10 @@ double norm(const Complex& z)
 //Conjucate
 Complex conj(const Complex& z)
 {
-	double resReal = z.real();
-	double resImag = (z.imag() * -1);
+	double resReal = z.real(); //x
+	double resImag = (z.imag() * -1); //yi * -1
 
-	Complex res(resReal, resImag);
+	Complex res(resReal, resImag); //(x - yi)
 	
 	return res;
 	
