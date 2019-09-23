@@ -47,7 +47,7 @@ int main()
 	z1 += z2;
 	z2 = Complex(8,6);
 	Assert(z1 == z2, "Operator +=");
-	z1 -= z2;
+	z1 -= Complex(4,3);
 	Assert(z1 == Complex(4,3), "Operator -=");
 	
 
