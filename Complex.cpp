@@ -67,6 +67,7 @@ Complex& Complex::operator*=(const Complex& z)
 }
 
 Complex& Complex::operator/=(const Complex& z)
+{
 	_real /= z._real;
 	_imag /= z._imag;
 	
