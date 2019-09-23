@@ -30,7 +30,21 @@ int main()
 	// TODO:
 	// Write *at least* 20 more tests to fully test
 	// your Complex class.
+	Complex z2(4,3);
+	Complex a1(7,3);
+	Complex a2(3,0);
 
+	Assert(z1 == z1);
+	Assert(z1 == z2);
+	Assert(z1 != a1);
+	Assert(z1 != 3);
+	Assert(a2 == 3);
+
+	z1 = 5;
+	Assert(z1 == 5);
+	z1 = (4,3);
+	Assert(z1 = z2);
+	
 
 	return 0;
 }
