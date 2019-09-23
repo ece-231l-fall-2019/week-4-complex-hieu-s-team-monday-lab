@@ -120,8 +120,8 @@ Complex operator/(const Complex& a, const Complex& b) //(a + bi)/(c + di) * (c -
 double norm(const Complex& z)
 {
 	double resReal = (z.real() * z.real()); //(x^2)
-	double resImag = (z.imag() * z.imag() * -1); //(yi^2 * -1) 
-	double square = sqrt(resReal + resImag); //sqrt(x + y)
+	double resImag = (z.imag() * z.imag()); //(yi^2 * -1) 
+	double square = (resReal + resImag); //sqrt(x + y)
 
 	return square;
 }
@@ -165,7 +165,7 @@ bool operator==(const Complex& a, double r)
 
 bool operator!=(const Complex& a, const Complex& b)
 {
-	if ((a.real() != b.real()) && (a.imag() != b.imag()))
+	if ((a.real() != b.real()) || (a.imag() != b.imag()))
 	{
 		return true;
 	}
