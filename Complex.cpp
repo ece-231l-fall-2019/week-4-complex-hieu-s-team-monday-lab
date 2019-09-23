@@ -121,9 +121,9 @@ double norm(const Complex& z)
 {
 	double resReal = (z.real() * z.real()); //(x^2)
 	double resImag = (z.imag() * z.imag()); //(yi^2 * -1) 
-	double square = (resReal + resImag); //sqrt(x + y)
+	double res = (resReal + resImag); //sqrt(x + y)
 
-	return square;
+	return res;
 }
 
 //Conjucate
