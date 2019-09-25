@@ -121,7 +121,7 @@ double norm(const Complex& z)
 {
 	double resReal = (z.real() * z.real()); //(x^2)
 	double resImag = (z.imag() * z.imag()); //(yi^2 * -1) 
-	double res = (resReal + resImag); //sqrt(x + y)
+	double res = (resReal + resImag); //(x + y)
 
 	return res;
 }
@@ -141,56 +141,28 @@ Complex conj(const Complex& z)
 //Comparisons
 bool operator==(const Complex& a, const Complex& b)
 {
-	if ((a.real() == b.real()) && (a.imag() == b.imag()))
-	{
-		return true;
-	}
-	else 
-	{
-		return false;
-	}
+	return ((a.real() == b.real()) && (a.imag() == b.imag())); //returns TRUE
 }
 
 bool operator==(const Complex& a, double r)
 {
-	if ((a.real() == r)||(a.imag() == r))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return ((a.real() == r) && (a.imag() == 0)); //returns TRUE
 }
 
 bool operator!=(const Complex& a, const Complex& b)
 {
-	if ((a.real() != b.real()) || (a.imag() != b.imag()))
-	{
-		return true;
-	}
-	else 
-	{
-		return false;
-	}
+	return ((a.real() != b.real()) || (a.imag() != b.imag())); //returns TRUE
 }
   
 bool operator!=(const Complex& a, double r)
 {
-	if ((a.real() != r)||(a.imag() != r))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return ((a.real() != r)||(a.imag() != 0)); //returns TRUE
 }
 
 //Outputs (x *+ or -* yi)
 std::ostream& operator<<(std::ostream& out, const Complex& z)
 {
-	out<<z.real()<<(z.imag() < 0? "-":"+")<<z.imag();
+	out<<z.real()<<(z.imag() < 0? "-":"+")<<z.imag()<<"i";
 	return out;
 }
 
