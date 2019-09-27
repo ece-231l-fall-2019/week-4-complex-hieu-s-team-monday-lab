@@ -33,7 +33,7 @@ int main()
 	
 	Assert(z1 == Complex(4,3), "Comparison == (complex)");
 	Assert(z1 == z1, "Comparison == (complex)");
-	Assert(z1 != (5,7), "Comparison != (complex)");
+	Assert(z1 != Complex(5,7), "Comparison != (complex)");
 	Assert(z1 != 3, "Comparison != (double)");
 	z1 = Complex(3,0);
 	Assert(z1 == 3, "Comparison == (double)");
@@ -47,10 +47,17 @@ int main()
 	z1 -= Complex(4,3);
 	Assert(z1 == Complex(4,3), "Operator -=");
 	z1 *= Complex(4,3);
-	Assert(z1 == Complex(16,9), "Operator *=");
+	Assert(z1 == Complex(7,24), "Operator *=");
+	z1 = Complex(4,3);
+	z1 /= Complex(4,3);
+	Assert(z1 == 1, "Operator /=");
+	z1 = 0;
+	Assert(z1 + Complex(4,3) == Complex(4,3), "Operator +");
+	z1 = Complex(4,3);
+	Assert(z1 - Complex(4,3) == 0, "Operator -");
+	std::cout << z1 << " :Print test, should be in form (a + bi)" << std::endl;
 
-
-	std::cout << norm(z1) << " : Expected Value: 2.646 " << std::endl;
+	std::cout << z1 / Complex(2,2) << " : Expected Values: 1.75-0.25i " << std::endl;
 	
 
 	return 0;
