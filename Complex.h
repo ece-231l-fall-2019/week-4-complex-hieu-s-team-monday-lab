@@ -46,6 +46,7 @@ bool operator==(const Complex& a, double r);
 bool operator!=(const Complex& a, const Complex& b);
 bool operator!=(const Complex& a, double r);
 
+// Practice
 // write the complex number z to the output stream in the
 // format "6+5i" or "6-5i"
 std::ostream& operator<<(std::ostream& out, const Complex& z);
