@@ -24,6 +24,7 @@ Complex::Complex(const Complex& z)
 double Complex::real() const {return _real;}
 double Complex::imag() const {return _imag;}
 
+//Assignment
 Complex& Complex::operator=(double r)
 {
 	_real = r;
@@ -56,6 +57,7 @@ Complex& Complex::operator-=(const Complex& z)
 	return *this;
 }
 
+
 Complex& Complex::operator*=(const Complex& z)
 {
 	_real *= z._real;
@@ -72,6 +74,7 @@ Complex& Complex::operator/=(const Complex& z)
 	return *this;
 }
 
+//Math Operators
 Complex operator+(const Complex& a, const Complex& b) 
 {
 	double addReal = (a.real() + b.real()); //(a + c)
@@ -88,107 +91,6 @@ Complex operator-(const Complex& a, const Complex& b)
 	double minImag = (a.imag() - b.imag()); //(bi - di)
 	
 	Complex res(minReal,minImag);
-	return res;
-}
-
-Complex operator*(const Complex& a, const Complex& b) //(a + bi)*(c + di) 
-{
-	double x = (a.real() * b.real()) + (a.imag() * b.imag() * -1); //x = (a*c)+(bi*di*-1)
-	double yi = (a.real() * b.imag()) + (a.imag() * b.real()); //yi = (a*di)+(bi*c)
-	
-	Complex res(x, yi);
-	
-	return res;
-}
-
-Complex operator/(const Complex& a, const Complex& b) //(a + bi)/(c + di) * (c - di)/(c - di)
-{
-	double topReal = ((a.real() * b.real()) + (a.imag() * (b.imag() * -1) * -1)); //(a * c) + (-1 * (bi * di *-1)
-	double topImag = ((a.real() * b.imag()* -1) + (a.imag() * b.real())); //(a * di * -1) + (bi * c)
-	double botReal = ((b.real() * b.real()) + (b.real() * (b.imag() * -1) * -1)); //(c * c) + (di *di * -1)
-	
-	Complex res ((topReal/botReal),(topImag/botReal));
-
-	return res;
-}
-
-//Squared magnitude of x
-double norm(const Complex& z)
-{
-	double resReal = (z.real() * z.real()); //(x^2)
-	double resImag = (z.imag() * z.imag(); //(yi^2 * -1) 
-	double square = (resReal + resImag); //sqrt(x + y)
-
-	return square;
-}
-
-//Conjucate
-Complex conj(const Complex& z)
-{
-	double resReal = z.real();
-	double resImag = (z.imag() * -1);
-
-	Complex res(resReal, resImag);
-	
-	return res;
-	
-}
-
-//Comparisons
-bool operator==(const Complex& a, const Complex& b)
-{
-	if ((a.real() == b.real()) || (a.imag() == b.imag()))
-	{
-		return true;
-	}
-	else 
-	{
-		return false;
-	}
-}
-
-bool operator==(const Complex& a, double r)
-{
-	if ((a.real() == r) || (a.imag() == r))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool operator!=(const Complex& a, const Complex& b)
-{
-	if ((a.real() != b.real()) || (a.imag() != b.imag()))
-	{
-		return true;
-	}
-	else 
-	{
-		return false;
-	}
-}
-  
-bool operator!=(const Complex& a, double r)
-{
-	if ((a.real() != r) || (a.imag() != r))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-//Outputs (x *+ or -* yi)
-std::ostream& operator<<(std::ostream& out, const Complex& z)
-{
-	out<<z.real()<<(z.imag() < 0? "-":"+")<<z.imag();
-	return out;
-}
 
 	return res;
 }
@@ -263,3 +165,4 @@ std::ostream& operator<<(std::ostream& out, const Complex& z)
 	out<<z.real()<<(z.imag() < 0? "-":"+")<<z.imag()<<"i";
 	return out;
 }
+
